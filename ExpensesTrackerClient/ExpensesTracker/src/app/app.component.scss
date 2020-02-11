@@ -1,0 +1,45 @@
+mat-sidenav-container {
+  height: calc(100% - 64px);
+}
+
+mat-sidenav {
+  width: 200px;
+}
+
+.menu-toggle-open {
+ cursor: pointer;
+ padding-right: 16px;
+}
+
+.menu-toggle-close {
+  position: absolute;
+  cursor: pointer;
+  top: 5px;
+  right: 5px;
+}
+
+.toolbar-spacing {
+  /* This fills the remaining space, by using flexbox.
+  Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+$sidenav-content-sidebars: 25px;
+$sidenav-content-horizontalBars: 20px;
+.sidenav-content {
+  padding-left: $sidenav-content-sidebars;
+  padding-right: $sidenav-content-sidebars;
+  padding-top: $sidenav-content-sidebars;
+  padding-bottom: $sidenav-content-sidebars;
+}
+
+.activeLink {
+  background-color: rgb(133, 133, 133); // TODO: create a sass file with all variables of material theming and import them for reusability!
+  border-left: solid 5px blue; //accent
+  box-sizing: border-box;
+}
+
+.activeLink:hover {
+  background-color: rgb(133, 133, 133);
+}
+

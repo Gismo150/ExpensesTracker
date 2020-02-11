@@ -1,0 +1,46 @@
+<!--https://angular.io/tutorial-->
+<mat-toolbar color="primary">
+  <i *ngIf="!sidebarOpen" (click)="sidenav.open(); sidebarOpen = true;" class="material-icons menu-toggle-open">menu</i>
+  <i *ngIf="sidebarOpen" (click)="close('toggle button'); sidebarOpen = false;" class="material-icons menu-toggle-open">menu_open</i>
+  <span>Expenses Tracker</span> <!--TODO: use service that shows the current active page-->
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="toolbar-spacing"></span>
+
+ <!--<span>TODO</span>-->
+
+</mat-toolbar>
+<mat-sidenav-container [(hasBackdrop)]="sidebarhasBackdrop"> <!--(backdropClick)="close('backdrop')"    Todo: use backdrop for mobile view!?-->
+  <mat-sidenav [(mode)]="sidebarMode"  #sidenav > <!--(keydown.escape)="close('escape')"--> <!--fixedInViewport="true" for mobile view! and change mode to over!-->
+    <!--<i (click)="close('toggle button')" class="material-icons menu-toggle-close">menu_open</i> for mobile views-->
+
+    <mat-nav-list >
+      <a routerLink="/dashboard" routerLinkActive="activeLink" mat-list-item>
+        <mat-icon>dashboard</mat-icon> Dashboard
+      </a>
+      <a mat-list-item>
+        <mat-icon>person</mat-icon> User Profile
+      </a>
+      <a mat-list-item>
+        <mat-icon>content_paste</mat-icon> Table List
+      </a>
+      <a mat-list-item>
+        <mat-icon>library_books</mat-icon> Typography
+      </a>
+      <a mat-list-item>
+        <mat-icon>location_on</mat-icon> Maps
+      </a>
+      <a mat-list-item>
+        <mat-icon>calendar_today</mat-icon> Calendar
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <!--put toolbar inside here for mobile views and comment out the close button above-->
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
