@@ -1,19 +1,26 @@
-<div>
-  <mat-card class="card-container">
-    <mat-card-header>
-    <mat-card-title>Monthly expenses</mat-card-title>
-  </mat-card-header>
-    <mat-card-content>
-      <canvas
-        baseChart
-        [chartType]="'line'"
-        [datasets]="chartData"
-        [labels]="chartLabels"
-        [options]="chartOptions"
-        [legend]="true"
-        (chartClick)="onChartClick($event)">
-    </canvas>
-    </mat-card-content>
-  </mat-card>
-
-</div>
+<mat-grid-list cols="3" gutterSize="10px" rowHeight="2:1">
+  <mat-grid-tile rowspan="2" colspan="2">
+    <mat-card class="card-container">
+      <mat-card-header>
+        <mat-card-title>Monthly expenses</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <canvas baseChart [chartType]="'line'" [datasets]="lineChartData" [labels]="lineChartLabelsMonthlyExpenses"
+          [options]="lineChartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="card-container">
+      <mat-card-header>
+        <mat-card-title>This month's expenses</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <canvas baseChart [chartType]="'doughnut'" [datasets]="doughnutChartData" [labels]="doughnutChartLabels"
+          [options]="doughnutChartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
