@@ -13,6 +13,8 @@ namespace ExpensesTracker.Models
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<TodoItem> TodoItem { get; set; } //Hint: TodoItem here is the actual table name within the db
+
+        // kommen hier auch die DBset zu anderen tables?!!
     }
 }

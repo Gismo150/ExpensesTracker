@@ -28,8 +28,11 @@ namespace ExpensesTracker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TodoContext>(opt =>
-               opt.UseInMemoryDatabase("TodoList"));
+            /*services.AddDbContext<TodoContext>(opt =>
+               opt.UseInMemoryDatabase("TodoList"));*/
+            services.AddDbContext<TodoContext>(options => // how to define one generic db context ?!
+                options.UseSqlServer(Configuration.GetConnectionString("MSSQLSERVER")));
+            
             services.AddControllers();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -54,7 +57,7 @@ namespace ExpensesTracker
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ExpensesTracker API V1");
             });
 
             app.UseHttpsRedirection();
