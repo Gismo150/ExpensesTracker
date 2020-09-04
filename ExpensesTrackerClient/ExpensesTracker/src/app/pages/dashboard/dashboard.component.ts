@@ -71,7 +71,7 @@ export class DashboardComponent implements OnInit {
       labels: { fontColor: this.chartFontColor}
     }
   };
-
+  //ng update @angular/cli @angular/core
 
   /*Dummy Data */
   lineChartData = [
