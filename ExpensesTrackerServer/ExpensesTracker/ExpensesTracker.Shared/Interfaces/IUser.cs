@@ -5,10 +5,8 @@ using System.Text;
 
 namespace ExpensesTracker.Shared.Interfaces
 {
-    public interface IUser
+    public interface IUser : IEntity
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; }
 
         public string Password { get; set; }

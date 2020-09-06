@@ -5,9 +5,8 @@ using System.Text;
 
 namespace ExpensesTracker.Shared.Interfaces
 {
-    public interface ICartItem
+    public interface ICartItem: IEntity
     {
-        public Guid Id { get; set; }
 
         public string Name { get; set; }
 

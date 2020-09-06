@@ -4,9 +4,8 @@ using System.Text;
 
 namespace ExpensesTracker.Shared.Interfaces
 {
-    public interface IReceipt
+    public interface IReceipt : IEntity
     {
-        public Guid Id { get; set; }
 
         public Guid UserId { get; set; }
 

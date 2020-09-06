@@ -8,7 +8,7 @@ using System.Text;
 namespace ExpensesTracker.Contracts.Models
 {
     [DataContract]
-    class User : IUser
+    public class User : IUser
     {
         [DataMember(Name ="id")]
         public Guid Id { get; set; }
