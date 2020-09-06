@@ -1,4 +1,5 @@
-﻿using ExpensesTracker.Shared.Interfaces;
+﻿using ExpensesTracker.Shared.Interfaces.Models;
+using ExpensesTracker.Shared.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

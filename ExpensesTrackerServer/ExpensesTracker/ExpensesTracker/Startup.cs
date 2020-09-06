@@ -12,8 +12,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using ExpensesTracker.Data;
 using ExpensesTracker.Repositories;
+using ExpensesTracker.Persistence.Data;
+using ExpensesTracker.Persistence.Services;
+using ExpensesTracker.Shared.Interfaces.Services;
+using ExpensesTracker.Configuration;
 
 namespace ExpensesTracker
 {
@@ -43,7 +46,7 @@ namespace ExpensesTracker
             services.AddDbContext<ExpensesTrackerContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ExpensesTrackerContext")));
 
-            services.AddScoped<UserRepository>();
+            PersistenceConfiguration.ConfigurePersistenceServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

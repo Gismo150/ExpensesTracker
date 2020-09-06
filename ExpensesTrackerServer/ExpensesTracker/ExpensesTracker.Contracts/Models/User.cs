@@ -1,5 +1,5 @@
 ﻿using ExpensesTracker.Shared.Enums;
-using ExpensesTracker.Shared.Interfaces;
+using ExpensesTracker.Shared.Interfaces.Models;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;

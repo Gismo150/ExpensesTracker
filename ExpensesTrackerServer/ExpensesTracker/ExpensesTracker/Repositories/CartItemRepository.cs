@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ExpensesTracker.Contracts.Models;
-using ExpensesTracker.Data;
+using ExpensesTracker.Persistence.Data;
 using ExpensesTracker.Persistence.EFRepositories;
 using Microsoft.AspNetCore.Mvc;
 

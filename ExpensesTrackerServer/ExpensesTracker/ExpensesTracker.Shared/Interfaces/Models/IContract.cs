@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExpensesTracker.Shared.Interfaces
+namespace ExpensesTracker.Shared.Interfaces.Models
 {
     public interface IContract : IEntity
     {

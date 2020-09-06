@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ExpensesTracker.Data;
 using ExpensesTracker.Persistence.EFRepositories;
-using ExpensesTracker.Shared.Interfaces;
+using ExpensesTracker.Shared.Interfaces.Models;
+using ExpensesTracker.Shared.Interfaces.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExpensesTracker.Controllers
@@ -44,22 +44,22 @@ namespace ExpensesTracker.Controllers
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, TEntity movie)
+        public async Task<IActionResult> Put(Guid id, TEntity entity)
         {
-            if (id != movie.Id)
+            if (id != entity.Id)
             {
                 return BadRequest();
             }
-            await repository.Update(movie);
+            await repository.Update(entity);
             return NoContent();
         }
 
         // POST: api/[controller]
         [HttpPost]
-        public async Task<ActionResult<TEntity>> Post(TEntity movie)
+        public async Task<ActionResult<TEntity>> Post(TEntity entity)
         {
-            await repository.Add(movie);
-            return CreatedAtAction("Get", new { id = movie.Id }, movie);
+            await repository.Add(entity);
+            return CreatedAtAction("Get", new { id = entity.Id }, entity);
         }
 
         // DELETE: api/[controller]/5
