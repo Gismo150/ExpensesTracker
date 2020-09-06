@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExpensesTracker.Shared.Interfaces.Services
 {
-    public interface IGroupAssignmentService: IGroupRepository
+    public interface IGroupAssignmentService: IGroupAssignmentRepository
     {
     }
 }
