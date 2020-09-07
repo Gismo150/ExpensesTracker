@@ -11,6 +11,7 @@ namespace ExpensesTracker.Persistence.Data
         public ExpensesTrackerContext(DbContextOptions<ExpensesTrackerContext> options)
             : base(options)
         {
+          //  System.Data.Entity.Database.SetInitializer()  ;
         }
 
         public DbSet<EFUser> User { get; set; }
@@ -18,5 +19,15 @@ namespace ExpensesTracker.Persistence.Data
         public DbSet<EFGroup> Group { get; set; }
         public DbSet<EFContract> Contract { get; set; }
         public DbSet<EFCartItem> CartItem { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //TODO define fluent api
+           /* modelBuilder.Entity<EFUser>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+            });*/
+
+        }
     }
 }

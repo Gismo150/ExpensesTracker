@@ -33,7 +33,7 @@ namespace ExpensesTracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ExpensesTrackerContext>(opt =>
-               opt.UseSqlServer(this.Configuration.GetConnectionString("ExpensesTracker")));
+               opt.UseSqlServer(this.Configuration.GetConnectionString("ExpensesTracker"), x => x.MigrationsAssembly("ExpensesTracker.Persistence")));
 
             services.AddControllers();
 
@@ -42,9 +42,6 @@ namespace ExpensesTracker
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExpensesTracker API", Version = "v1" });
             });
-
-            services.AddDbContext<ExpensesTrackerContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ExpensesTrackerContext")));
 
             PersistenceConfiguration.ConfigurePersistenceServices(services);
         }

@@ -1,6 +1,8 @@
 ﻿using ExpensesTracker.Shared.Interfaces.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -9,6 +11,7 @@ namespace ExpensesTracker.Persistence.Models
     [DataContract]
     public class EFContract : IContract
     {
+        [Key]
         [DataMember(Name = "id")]
         public Guid Id { get; set; }
 
@@ -34,6 +37,7 @@ namespace ExpensesTracker.Persistence.Models
         public string AccountingPeriod { get; set; } //Cron string
 
         //Navigation
+        [ForeignKey(nameof(UserId))]
         public EFUser User { get; set; }
     }
 }

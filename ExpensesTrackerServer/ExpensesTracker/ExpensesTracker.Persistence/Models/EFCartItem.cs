@@ -2,6 +2,7 @@
 using ExpensesTracker.Shared.Interfaces.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -10,6 +11,7 @@ namespace ExpensesTracker.Persistence.Models
     [DataContract]
     public class EFCartItem : ICartItem
     {
+        [Key]
         [DataMember(Name = "id")]
         public Guid Id { get; set; }
 
